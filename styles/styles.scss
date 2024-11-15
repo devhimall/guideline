@@ -1,0 +1,414 @@
+@use "../styles/__typography.scss" as *;
+@import "../styles/_icons";
+
+*,
+::after,
+::before {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+
+$primary-color: #212121;
+$secondary-color: #f7f9ee;
+$orange-color: #ff961c;
+$stone900-color: #292b17;
+$skyblue-color: #6bc6ec;
+
+@mixin respond-to($breakpoints) {
+  @if $breakpoints == mobile {
+    @media screen and (min-width: 200px) {
+      @content;
+    }
+  } @else if $breakpoints == tablet {
+    @media screen and (min-width: 768px) {
+      @content;
+    }
+  } @else if $breakpoints == desktop {
+    @media screen and (min-width: 1024px) {
+      @content;
+    }
+  }
+}
+
+// for colors
+
+@include respond-to(mobile) {
+  @include mobile-typefaces();
+  @include desktop-typefaces();
+  @include mobile-text-sizes();
+  @include desktop-text-sizes();
+
+  .icons,
+  .style-guideline,
+  .typography {
+    min-height: 100vh;
+    height: 100%;
+    width: 100%;
+
+    &__colors {
+      height: 100%;
+      width: 100%;
+    }
+
+    // color section title
+
+    &__section-color-title {
+      background-color: $primary-color;
+      color: $secondary-color;
+      font-size: 64px;
+      line-height: 64px;
+      font-weight: 500;
+      padding: 30px 30px;
+    }
+
+    // typography section title
+
+    // typography and icons style Start
+    &__title,
+    &__header {
+      text-transform: capitalize;
+      height: 200px;
+      background-color: $primary-color;
+      display: flex;
+      align-items: center;
+      padding-left: 40px;
+
+      h2 {
+        font-weight: 500;
+        font-size: 64px;
+        line-height: 64px;
+        color: $secondary-color;
+      }
+    }
+
+    //typography and icons style  End
+
+    &__body {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      width: 90%;
+      margin: auto;
+      padding-bottom: 100px;
+    }
+
+    &__desktop,
+    &__mobile {
+      p {
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 15px;
+      }
+    }
+
+    &__dtitle {
+      border-bottom: 1px solid $stone900-color;
+      padding: 20px 0px;
+    }
+
+    &__dlists,
+    &__mlists,
+    &__text {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    // typography styles end
+
+    &__lists {
+      height: fit-content;
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      padding-bottom: 100px;
+    }
+
+    &__item {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 20px;
+      align-items: center;
+      height: 100%;
+      width: 100%;
+      overflow: hidden;
+      padding: 40px;
+    }
+
+    &__item:first-child {
+      .style-guideline__card {
+        background-color: $stone900-color;
+      }
+    }
+
+    &__item:nth-child(2) {
+      .style-guideline__card {
+        background-color: $orange-color;
+      }
+    }
+    &__item:nth-child(3) {
+      .style-guideline__card {
+        background-color: $skyblue-color;
+      }
+    }
+
+    &__item:nth-child(4) {
+      .style-guideline__card {
+        background-color: $primary-color;
+      }
+    }
+
+    &__card {
+      height: 80%;
+      width: 100%;
+      border-radius: 16px;
+      overflow: hidden;
+      height: 200px;
+    }
+
+    &__desc {
+      height: 16px;
+      line-height: 16px;
+      letter-spacing: -2%;
+      text-align: center;
+      font-weight: 500;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+
+      &__color-name {
+        text-transform: capitalize;
+      }
+
+      &__color-code {
+        text-transform: uppercase;
+      }
+    }
+
+    &__wrapper {
+      .icons__section-title {
+        border-bottom: 1px solid $stone900-color;
+        margin: 40px;
+        padding: 30px 0px;
+        h2 {
+          color: $primary-color;
+          font-weight: 500;
+          font-size: 24px;
+        }
+      }
+    }
+    &__lists {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      padding: 0px 30px;
+
+      li {
+        padding: 20px 0px;
+        font-size: 40px;
+        display: flex;
+        align-items: center;
+        line-height: 40px;
+        text-transform: capitalize;
+        gap: 10px;
+      }
+    }
+
+    // icons
+  }
+}
+
+.style-guideline,
+.typography,
+.icons {
+  @include respond-to(mobile) {
+    min-height: 100vh;
+    height: 100%;
+    width: 100%;
+
+    &__colors {
+      height: 100%;
+      width: 100%;
+    }
+
+    // color section title
+
+    &__section-color-title {
+      background-color: $primary-color;
+      color: $secondary-color;
+      font-size: 64px;
+      line-height: 64px;
+      font-weight: 500;
+      padding: 30px 30px;
+    }
+
+    // typography section title
+
+    // typography and icons style Start
+    &__title,
+    &__header {
+      text-transform: capitalize;
+      height: 200px;
+      background-color: $primary-color;
+      display: flex;
+      align-items: center;
+      padding-left: 40px;
+
+      h2 {
+        font-weight: 500;
+        font-size: 64px;
+        line-height: 64px;
+        color: $secondary-color;
+      }
+    }
+
+    //typography and icons style  End
+
+    &__body {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      width: 90%;
+      margin: auto;
+      padding-bottom: 100px;
+    }
+
+    &__desktop,
+    &__mobile {
+      p {
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 15px;
+      }
+    }
+
+    &__dtitle {
+      border-bottom: 1px solid $stone900-color;
+      padding: 20px 0px;
+    }
+
+    &__dlists,
+    &__mlists,
+    &__text {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    // typography styles end
+
+    &__lists {
+      height: fit-content;
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      padding-bottom: 100px;
+    }
+
+    &__item {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 20px;
+      align-items: center;
+      height: 100%;
+      width: 100%;
+      overflow: hidden;
+      padding: 40px;
+    }
+
+    &__item:first-child {
+      .style-guideline__card {
+        background-color: $stone900-color;
+      }
+    }
+
+    &__item:nth-child(2) {
+      .style-guideline__card {
+        background-color: $orange-color;
+      }
+    }
+    &__item:nth-child(3) {
+      .style-guideline__card {
+        background-color: $skyblue-color;
+      }
+    }
+
+    &__item:nth-child(4) {
+      .style-guideline__card {
+        background-color: $primary-color;
+      }
+    }
+
+    &__card {
+      height: 80%;
+      width: 100%;
+      border-radius: 16px;
+      overflow: hidden;
+      height: 200px;
+    }
+
+    &__desc {
+      height: 16px;
+      line-height: 16px;
+      letter-spacing: -2%;
+      text-align: center;
+      font-weight: 500;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+
+      &__color-name {
+        text-transform: capitalize;
+      }
+
+      &__color-code {
+        text-transform: uppercase;
+      }
+    }
+
+    &__wrapper {
+      .icons__section-title {
+        border-bottom: 1px solid $stone900-color;
+        margin: 40px;
+        padding: 30px 0px;
+        h2 {
+          color: $primary-color;
+          font-weight: 500;
+          font-size: 24px;
+        }
+      }
+    }
+
+    // icons
+  }
+
+  @include respond-to(tablet) {
+    &__lists {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @include respond-to(desktop) {
+    &__lists {
+      grid-template-columns: repeat(4, 1fr);
+      max-width: 1440px;
+      margin: auto;
+    }
+
+    &__card {
+      height: 150px;
+    }
+
+    // typography
+    &__body {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+  }
+}

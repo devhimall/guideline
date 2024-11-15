@@ -1,0 +1,171 @@
+@use "__variables" as *;
+
+$typography: (
+  h1: (
+    mobile: (
+      font-size: $mobile-h1,
+      line-height: $mobile-h1-lh,
+    ),
+    desktop: (
+      font-size: $desktop-h1,
+      line-height: $desktop-h1-lh,
+    ),
+  ),
+  h2: (
+    mobile: (
+      font-size: $mobile-h2,
+      line-height: $mobile-h2-lh,
+    ),
+    desktop: (
+      font-size: $desktop-h2,
+      line-height: $desktop-h2-lh,
+    ),
+  ),
+  h3: (
+    mobile: (
+      font-size: $mobile-h3,
+      line-height: $mobile-h3-lh,
+    ),
+    desktop: (
+      font-size: $desktop-h3,
+      line-height: $desktop-h3-lh,
+    ),
+  ),
+  h4: (
+    mobile: (
+      font-size: $mobile-h4,
+      line-height: $mobile-h4-lh,
+    ),
+    desktop: (
+      font-size: $desktop-h4,
+      line-height: $desktop-h4-lh,
+    ),
+  ),
+  h5: (
+    mobile: (
+      font-size: $mobile-h5,
+      line-height: $mobile-h5-lh,
+    ),
+    desktop: (
+      font-size: $desktop-h5,
+      line-height: $desktop-h5-lh,
+    ),
+  ),
+  h6: (
+    mobile: (
+      font-size: $mobile-h6,
+      line-height: $mobile-h6-lh,
+    ),
+    desktop: (
+      font-size: $desktop-h6,
+      line-height: $desktop-h6-lh,
+    ),
+  ),
+);
+
+$text-sizes: (
+  large: (
+    mobile: (
+      font-size: $mobile-large,
+      line-height: $mobile-large-lineheight,
+    ),
+    desktop: (
+      font-size: $desktop-large,
+      line-height: $desktop-large-lineheight,
+    ),
+  ),
+  medium: (
+    mobile: (
+      font-size: $mobile-medium,
+      line-height: $mobile-medium-lineheight,
+    ),
+    desktop: (
+      font-size: $desktop-medium,
+      line-height: $desktop-medium-lineheight,
+    ),
+  ),
+  regular: (
+    mobile: (
+      font-size: $mobile-regular,
+      line-height: $mobile-regular-lineheight,
+    ),
+    desktop: (
+      font-size: $desktop-regular,
+      line-height: $desktop-regular-lineheight,
+    ),
+  ),
+  small: (
+    mobile: (
+      font-size: $mobile-small,
+      line-height: $mobile-small-lineheight,
+    ),
+    desktop: (
+      font-size: $desktop-small,
+      line-height: $desktop-small-lineheight,
+    ),
+  ),
+  xsmall: (
+    mobile: (
+      font-size: $mobile-xsmall,
+      line-height: $mobile-xsmall-lineheight,
+    ),
+    desktop: (
+      font-size: $desktop-xsmall,
+      line-height: $desktop-xsmall-lineheight,
+    ),
+  ),
+);
+
+@mixin mobile-typefaces() {
+  @each $heading, $sizes in $typography {
+    .typography__m#{$heading} {
+      font-size: map-get(map-get($sizes, mobile), font-size);
+      line-height: map-get(map-get($sizes, mobile), line-height);
+
+      &::after {
+        content: ": fs:#{map-get(map-get($sizes, mobile), font-size)} && lh: #{map-get(map-get($sizes, mobile), line-height)} ";
+      }
+    }
+  }
+}
+
+@mixin mobile-text-sizes() {
+  @each $font, $screensizes in $text-sizes {
+    .typography__m#{$font} {
+      font-size: map-get(map-get($screensizes, mobile), font-size);
+      line-height: map-get(map-get($screensizes, mobile), line-height);
+
+      &::after {
+        content: "fs:#{map-get(map-get($screensizes, mobile), font-size)} && lh:#{map-get(map-get($screensizes, mobile), font-size)}";
+        color: $primary-color;
+      }
+    }
+  }
+}
+
+@mixin desktop-typefaces() {
+  @each $heading, $sizes in $typography {
+    .typography__#{$heading} {
+      font-size: map-get(map-get($sizes, desktop), font-size);
+      line-height: map-get(map-get($sizes, desktop), line-height);
+
+      &::after {
+        content: ": fs:#{map-get(map-get($sizes, desktop), font-size)} && lh: #{map-get(map-get($sizes, desktop), line-height)} ";
+      }
+    }
+  }
+}
+
+@mixin desktop-text-sizes() {
+  @each $font, $screensizes in $text-sizes {
+    .typography__#{$font} {
+      font-size: map-get(map-get($screensizes, desktop), font-size);
+      line-height: map-get(map-get($screensizes, desktop), line-height);
+
+      &::after {
+        content: "fs:#{map-get(map-get($screensizes, desktop), font-size)} && lh:#{map-get(map-get($screensizes, desktop), font-size)}";
+        color: $primary-color;
+      }
+    }
+  }
+}
